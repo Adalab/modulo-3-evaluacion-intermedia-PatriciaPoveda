@@ -86,10 +86,16 @@ const data = [
 ];
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokedex: data,
+    };
+  }
   render() {
     return (
       <div className="App">
-        <PokeList pokedex={data}></PokeList>
+        <PokeList pokedex={this.state.pokedex}></PokeList>
       </div>
     );
   }
