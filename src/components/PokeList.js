@@ -1,13 +1,10 @@
 import React from "react";
-
+import "./pokeList.scss";
 import Pokemon from "./Pokemon";
+import PropTypes from "prop-types";
 
 class PokeList extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   render() {
-    // console.log(this.state.pokedex);
     const pokemons = this.props.pokedex.map((pokemon) => {
       return (
         <li key={pokemon.id}>
@@ -18,9 +15,13 @@ class PokeList extends React.Component {
 
     return (
       <>
-        <ul>{pokemons}</ul>
+        <h2 className="pokemonTitle">Mi lista de Pokemon</h2>
+        <ul className="pokemonList">{pokemons}</ul>
       </>
     );
   }
 }
+PokeList.propsTypes = {
+  pokedex: PropTypes.array,
+};
 export default PokeList;

@@ -1,0 +1,12 @@
+.pokemonItem {
+  width: 150px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: solid 5px green;
+  border-radius: 25px;
+  text-align: center;
+  &__img {
+    height: 150px;
+  }
+}

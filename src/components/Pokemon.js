@@ -1,28 +1,31 @@
 import React from "react";
+import "./pokemon.scss";
+import PropTypes from "prop-types";
 
 class Pokemon extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {};
-    console.log(props.pokemon.types);
-  }
   render() {
     const pokeType = this.props.pokemon.types.map((type, index) => {
-      console.log(type);
-      return <li key={index}>{type}</li>;
+      return (
+        <li className="pokemonItem__type--item" key={index}>
+          {type}
+        </li>
+      );
     });
     return (
-      <>
-        <div>
-          <img
-            src={`${this.props.pokemon.url}`}
-            alt={`Pokemon: ${this.props.pokemon.name}`}
-          />
-          <h2>{this.props.pokemon.name}</h2>
-          <ul>{pokeType}</ul>
-        </div>
-      </>
+      <article className="pokemonItem">
+        <img
+          className="pokemonItem__img"
+          src={`${this.props.pokemon.url}`}
+          alt={`Pokemon: ${this.props.pokemon.name}`}
+        />
+        <h2 className="pokemonItem__name">{this.props.pokemon.name}</h2>
+        <ul className="pokemonItem__type">{pokeType}</ul>
+      </article>
     );
   }
 }
+Pokemon.propsTypes = {
+  types: PropTypes.string,
+  name: PropTypes.string,
+};
 export default Pokemon;
